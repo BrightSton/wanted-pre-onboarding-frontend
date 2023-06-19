@@ -53,6 +53,7 @@ function SignIn() {
         data-testid="email-input"
         type="text"
         value={email}
+        placeholder="email 입력란"
         onChange={handleEmail}
       />
       <input

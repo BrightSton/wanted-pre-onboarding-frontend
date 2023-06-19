@@ -38,7 +38,7 @@ export function SignUp() {
       })
       .then((res) => {
         console.log("회원가입에 성공!");
-        navigate("/signin");
+        navigate("/");
       })
       .catch((errer) => {
         console.log("회원가입에 실패");
@@ -52,12 +52,14 @@ export function SignUp() {
         data-testid="email-input"
         type="text"
         value={email}
+        placeholder="email 입력란"
         onChange={handleEmail}
       />
       <input
         data-testid="password-input"
         type="password"
         value={password}
+        placeholder="8글자 이상"
         onChange={handlePassword}
       />
       <button
@@ -69,7 +71,7 @@ export function SignUp() {
         회원가입
       </button>
       <p>
-        <button type="button" onClick={() => navigate("/signin")}>
+        <button type="button" onClick={() => navigate("/")}>
           로그인
         </button>
         하러가기
