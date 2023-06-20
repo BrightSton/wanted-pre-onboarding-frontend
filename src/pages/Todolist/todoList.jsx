@@ -1,7 +1,10 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function TodoList() {
+  let navigate = useNavigate();
+
   const token = {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   };
@@ -73,6 +76,10 @@ export function TodoList() {
   };
 
   useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/");
+    }
+
     axios
       .get("https://www.pre-onboarding-selection-task.shop/todos", token)
       .then((res) => setTodos(res.data))
@@ -138,4 +145,5 @@ export function TodoList() {
     </>
   );
 }
+
 export default TodoList;

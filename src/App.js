@@ -8,18 +8,17 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
+    const token = localStorage.getItem("token");
+    if (token) {
       navigate("/todo");
-    } else {
-      navigate("/");
     }
   }, []);
 
   return (
     <Routes>
-      <Route path="/" element={<SignIn />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/todo" element={<TodoList />} />
+      <Route exact path="/" element={<SignIn />} />
+      <Route exact path="/signup" element={<SignUp />} />
+      <Route exact path="/todo" element={<TodoList />} />
     </Routes>
   );
 }
